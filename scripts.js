@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('load', () => {
         setTimeout(() => {
             loaderWrapper.classList.add('fade-out');
-        }, 1500); // Mantiene la pantalla de carga por 1.5 segundos
+        }, 1500);
     });
 
     // --- CONTROL DE MÚSICA ---
@@ -14,8 +14,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const musicIcon = document.getElementById('music-icon');
     let isPlaying = false;
 
-    // La mayoría de los navegadores bloquean la reproducción automática.
-    // Esta función intenta reproducir la música en la primera interacción del usuario.
     function initAudioOnFirstInteraction() {
         if (!isPlaying) {
             backgroundMusic.play().then(e => {
@@ -90,27 +88,47 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(item);
     });
 
-    // --- LIGHTBOX PARA GALERÍA ---
+    // --- LIGHTBOX PARA GALERÍA (IMÁGENES Y VIDEOS) ---
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxVideo = document.getElementById('lightbox-video');
     const galleryItems = document.querySelectorAll('.gallery-item[data-lightbox]');
     const closeLightbox = document.querySelector('.close-lightbox');
+
+    function openLightbox(src, type) {
+        lightbox.style.display = 'block';
+        
+        if (type === 'video') {
+            lightboxImg.style.display = 'none';
+            lightboxVideo.style.display = 'block';
+            lightboxVideo.src = src;
+            lightboxVideo.play();
+        } else {
+            lightboxVideo.style.display = 'none';
+            lightboxImg.style.display = 'block';
+            lightboxImg.src = src;
+            lightboxVideo.pause();
+        }
+    }
+
+    function closeLightboxFunc() {
+        lightbox.style.display = 'none';
+        lightboxVideo.pause();
+        lightboxVideo.src = '';
+    }
 
     galleryItems.forEach(item => {
         item.addEventListener('click', (e) => {
             e.preventDefault();
-            lightbox.style.display = 'block';
-            lightboxImg.src = item.href;
+            const mediaType = item.dataset.type || 'image';
+            openLightbox(item.href, mediaType);
         });
     });
 
-    closeLightbox.addEventListener('click', () => {
-        lightbox.style.display = 'none';
-    });
-
+    closeLightbox.addEventListener('click', closeLightboxFunc);
     lightbox.addEventListener('click', (e) => {
         if (e.target === lightbox) {
-            lightbox.style.display = 'none';
+            closeLightboxFunc();
         }
     });
 
@@ -119,10 +137,6 @@ document.addEventListener('DOMContentLoaded', function() {
     rsvpForm.addEventListener('submit', function(event) {
         event.preventDefault();
         
-        // Aquí puedes añadir la lógica para enviar los datos a un servidor (usando fetch por ejemplo)
-        // Por ahora, solo mostraremos una animación de confeti y un mensaje.
-        
-        // Animación de confeti simple
         const duration = 3 * 1000;
         const animationEnd = Date.now() + duration;
         const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
@@ -140,7 +154,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
             const particleCount = 50 * (timeLeft / duration);
             
-            // Crea confeti desde dos lados
             confetti(Object.assign({}, defaults, {
                 particleCount,
                 origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 }
@@ -151,7 +164,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }));
         }, 250);
 
-        // Mostrar mensaje de agradecimiento
         setTimeout(() => {
             alert("¡Gracias por confirmar! ¡Nos vemos en la boda!");
             rsvpForm.reset();
