@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuestro Universo, Un Nuevo Comienzo | [DEIBER CARRASCAL] & [TANIA BARAJAS]</title>
+    
+    <!-- Enlace a la hoja de estilos CSS -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Google Fonts: Elegancia y Modernidad -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Playfair+Display:wght@700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- PANTALLA DE CARGA -->
+    <div id="loader-wrapper">
+        <div class="loader-content">
+            <h1 class="loader-title">DEIBER & TANIA</h1>
+            <div class="loader-subtitle">Nuestra historia está a punto de comenzar...</div>
+            <div class="loader-bar">
+                <div class="loader-progress"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- REPRODUCTOR DE MÚSICA -->
+    <div id="music-player">
+        <i class="fas fa-music" id="music-icon"></i>
+    </div>
+    
+    <!-- Audio oculto -->
+    <audio id="background-music" loop>
+      <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mpeg">
+      Tu navegador no soporta el elemento de audio.
+    </audio>
+
+    <!-- SECCIÓN 1: LA LLEGADA (HERO) -->
+    <header id="hero">
+        <div class="hero-content" data-depth="0.2">
+            <h1 class="hero-main-title" data-text="[Nombre 1] & [Nombre 2]">DEIBER & TANIA</h1>
+            <p class="hero-subtitle">Te invitamos a celebrar el comienzo de nuestro paraíso</p>
+            <a href="#announcement" class="cta-button">Descubrir más</a>
+        </div>
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </header>
+
+    <main>
+        <!-- SECCIÓN 2: CUENTA REGRESIVA -->
+        <section id="countdown" class="container">
+            <h2 class="section-title">Faltan</h2>
+            <div class="countdown-wrapper">
+                <div class="countdown-item">
+                    <span class="countdown-number" id="days">00</span>
+                    <span class="countdown-label">Días</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="hours">00</span>
+                    <span class="countdown-label">Horas</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="minutes">00</span>
+                    <span class="countdown-label">Minutos</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="seconds">00</span>
+                    <span class="countdown-label">Segundos</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 3: NUESTRA HISTORIA -->
+        <section id="story" class="container">
+            <h2 class="section-title">Nuestro Viaje</h2>
+            <div class="timeline">
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h3>El Comienzo</h3>
+                        <p>[Fecha], el día en que nuestros caminos se cruzaron por primera vez.</p>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <h3>La Aventura</h3>
+                        <p>Nuestro primer viaje juntos a [Lugar], descubriendo el mundo y el amor.</p>
+                    </div>
+                </div>
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h3>La Promesa</h3>
+                        <p>[Fecha de propuesta], la pregunta que cambió todo. Un "Sí" que selló nuestro destino.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 4: EL GRAN ANUNCIO -->
+        <section id="announcement" class="container">
+            <h2 class="section-title">¡Nos Casamos!</h2>
+            <div class="announcement-details">
+                <div class="detail-card">
+                    <h3>Fecha</h3>
+                    <p id="wedding-date">Sábado, [Día] de [Mes] de 2024</p>
+                </div>
+                <div class="detail-card">
+                    <h3>Hora</h3>
+                    <p id="wedding-time">A las [Hora]:[Minutos] de la tarde</p>
+                </div>
+                <div class="detail-card">
+                    <h3>Lugar</h3>
+                    <p>[Nombre del Lugar]</p>
+                    <a href="[ENLACE A GOOGLE MAPS]" target="_blank" class="map-link">Ver en el mapa</a>
+                </div>
+                 <div class="detail-card">
+                    <h3>Código de Vestimenta</h3>
+                    <p>Elegante Formal</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 5: GALERÍA DE FOTOS -->
+        <section id="gallery" class="container">
+            <h2 class="section-title">Momentos</h2>
+            <div class="gallery-grid">
+                <!-- Reemplaza las URLs con tus fotos -->
+                <a href="https://images.unsplash.com/photo-1519223320776-997b6589af23?q=80&w=2070" class="gallery-item" data-lightbox="gallery"><img src="https://images.unsplash.com/photo-1519223320776-997b6589af23?q=80&w=2070" alt="Foto 1"></a>
+                <a href="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=2070" class="gallery-item" data-lightbox="gallery"><img src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=2070" alt="Foto 2"></a>
+                <a href="https://images.unsplash.com/photo-1469374921402-8356e60ba085?q=80&w=2070" class="gallery-item" data-lightbox="gallery"><img src="https://images.unsplash.com/photo-1469374921402-8356e60ba085?q=80&w=2070" alt="Foto 3"></a>
+                <a href="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=2069" class="gallery-item" data-lightbox="gallery"><img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=2069" alt="Foto 4"></a>
+                <a href="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=2070" class="gallery-item" data-lightbox="gallery"><img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=2070" alt="Foto 5"></a>
+                <a href="https://images.unsplash.com/photo-1518173946687-a4c8892bbd9f?q=80&w=2069" class="gallery-item" data-lightbox="gallery"><img src="https://images.unsplash.com/photo-1518173946687-a4c8892bbd9f?q=80&w=2069" alt="Foto 6"></a>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 6: RSVP -->
+        <section id="rsvp" class="container">
+            <h2 class="section-title">¿Nos Acompañas?</h2>
+            <p>Tu presencia es el regalo más importante para nosotros. Por favor, confirma tu asistencia antes del [Fecha Límite].</p>
+            <form id="rsvp-form">
+                <div class="form-group">
+                    <label for="name">Nombre Completo</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="attendance">¿Asistirás?</label>
+                    <select id="attendance" name="attendance" required>
+                        <option value="" disabled selected>--Selecciona una opción--</option>
+                        <option value="yes">Sí, con mucho gusto!</option>
+                        <option value="no">Lamentablemente no podré asistir.</option>
+                    </select>
+                </div>
+                <button type="submit" id="submit-rsvp">Confirmar Asistencia</button>
+            </form>
+        </section>
+    </main>
+
+    <!-- Lightbox para Galería -->
+    <div id="lightbox">
+        <span class="close-lightbox">&times;</span>
+        <img class="lightbox-content" id="lightbox-img">
+        <div id="lightbox-caption"></div>
+    </div>
+
+    <!-- Enlace al archivo JavaScript -->
+    <script src="scripts.js"></script>
+</body>
+</html>
