@@ -1,11 +1,12 @@
 /* --- VARIABLES Y CONFIGURACIÓN GLOBAL --- */
 :root {
-    --primary-color: #0d1117; /* Fondo oscuro */
-    --secondary-color: #161b22;
+    --primary-color: #F5F5DC; /* Fondo oscuro */
+    --secondary-color: #F5F5DC;
     --accent-color: #d4af37; /* Dorado */
     --text-color: #f0f6fc; /* Blanco suave */
-    --font-heading: 'Garamond', serif;
-    --font-body: 'Montserrat', sans-serif;
+    --font-heading: 'Allura', cursive;
+    --font-body: 'Great Vibes', cursive;
+    --text-color-inicio: #080808;
 }
 
 * {
@@ -48,8 +49,15 @@ body {
     text-align: center;
     max-width: 700px;
     margin: 0 auto 50px auto;
-    font-size: 1.1rem;
+    font-size: 2.1rem;
     opacity: 0.8;
+}
+.parrafo{
+    font-size: 1.3rem;
+}
+
+.link{
+    font-size: 1.3rem;
 }
 
 /* --- PANTALLA DE CARGA --- */
@@ -139,7 +147,7 @@ header nav a {
     color: var(--text-color);
     text-decoration: none;
     margin: 0 20px;
-    font-size: 1rem;
+    font-size: 1.5rem;
     font-weight: 600;
     transition: color 0.3s ease;
 }
@@ -147,37 +155,38 @@ header nav a:hover {
     color: var(--accent-color);
 }
 
-/* --- SECCIÓN 1: HÉROE --- */
+/* --- SECCIÓN 1: INVITACIÓN --- */
 #hero {
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    background: linear-gradient(rgba(13, 17, 23, 0.5), rgba(13, 17, 23, 0.5)), url('https://images.unsplash.com/photo-1519225421980-715cb021e6e2?q=80&w=2070') center/cover no-repeat;
+    /* ---background: linear-gradient(rgba(13, 17, 23, 0.5), rgba(13, 17, 23, 0.5)), url('https://images.unsplash.com/photo-1519225421980-715cb021e6e2?q=80&w=2070') center/cover no-repeat;--- */
     position: relative;
 }
 
 .hero-main-title {
     font-family: var(--font-heading);
     font-size: 4.5rem;
-    color: var(--text-color);
+    color: var(--text-color-inicio);
     text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
     margin-bottom: 20px;
     animation: fadeInUp 1.5s ease-out;
 }
 
 .hero-subtitle {
-    font-size: 1.5rem;
+    font-size: 2.5rem;
     font-weight: 300;
     margin-bottom: 30px;
     animation: fadeInUp 1.5s ease-out 0.5s both;
+    color: var(--text-color-inicio);
 }
 
 .cta-button {
     display: inline-block;
     padding: 15px 35px;
-    font-size: 1.1rem;
+    font-size: 2rem;
     font-weight: bold;
     background-color: var(--accent-color);
     color: var(--primary-color);
@@ -310,7 +319,7 @@ header nav a:hover {
 }
 
 .countdown-label {
-    font-size: 1rem;
+    font-size: 0.8rem;
     text-transform: uppercase;
     letter-spacing: 2px;
     margin-top: 10px;
@@ -576,7 +585,7 @@ header nav a:hover {
     color: var(--primary-color);
     border: none;
     border-radius: 8px;
-    font-size: 1.2rem;
+    font-size: 2rem;
     font-weight: bold;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -637,5 +646,43 @@ header nav a:hover {
     .left::after, .right::after { left: 21px; }
     .right { left: 0%; }
     .lightbox-content { width: 95%; }
-    header nav a { margin: 0 10px; font-size: 0.9rem; }
+    header nav a { margin: 0 10px; font-size: 2rem; }
 }
+
+#magicButton {
+    padding: 15px 30px;
+    font-size: 2em;
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+    background-color: #6a5acd;
+    color: white;
+    transition: transform 0.2s;
+}
+
+#magicButton:hover {
+    transform: scale(1.05);
+}
+
+
+
+* --- ESTILOS DEL BOTÓN MÁGICO --- */
+#magicButton {
+    padding: 15px 30px;
+    font-size: 2rem;
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+    background-color: #6a5acd; /* Un color mágico */
+    color: white;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 15px rgba(106, 90, 205, 0.4);
+}
+
+#magicButton:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(106, 90, 205, 0.6);
+}
+
+
+

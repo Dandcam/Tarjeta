@@ -12,6 +12,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Allura&family=Montserrat&display=swap" rel="stylesheet">
     
     <!-- Font Awesome para iconos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -32,17 +33,17 @@
     <div id="music-player" title="Reproducir/Pausar Música">
         <i class="fas fa-music" id="music-icon"></i>
     </div>
-    <audio id="background-music" src="https://youtu.be/66yq-1PZtlQ?list=RD66yq-1PZtlQ" loop></audio>
+    <audio id="background-music" src="Cancion.mp3" loop></audio>
    
     <main>
-        <!-- SECCIÓN 1: HÉROE -->
+        <!-- SECCIÓN 1: BIENVENIDA -->
         <section id="hero">
             <div class="hero-content">
-                <h1 class="hero-main-title" data-text="[Nombre 1] & [Nombre 2]">Invitación</h1>
-                <p class="hero-subtitle">¡Junto a ti, empieza nuestra nueva historia!</p>
+                <h1 class="hero-main-title" data-text="[Nombre 1] & [Nombre 2]">Deiber & Tania</h1>
+                <p class="hero-subtitle">Con la bendición de Dios y nuestros padres, tenemos el gusto de invitarlos a celebrar nuestra unión.</p>
                 <a href="#timeline" class="cta-button">Ver Detalles</a>
             </div>
-            <div class="scroll-indicator">
+            <div id="butterfly-container" class="scroll-indicator">
                 <i class="fas fa-chevron-down"></i>
             </div>
         </section>
@@ -53,19 +54,19 @@
                 <h2 class="section-title">Faltan</h2>
                 <div class="countdown-wrapper">
                     <div class="countdown-item">
-                        <span class="countdown-number" id="days">300</span>
+                        <span class="countdown-number" id="days"></span>
                         <span class="countdown-label">Días</span>
                     </div>
                     <div class="countdown-item">
-                        <span class="countdown-number" id="hours">12</span>
+                        <span class="countdown-number" id="hours"></span>
                         <span class="countdown-label">Horas</span>
                     </div>
                     <div class="countdown-item">
-                        <span class="countdown-number" id="minutes">00</span>
+                        <span class="countdown-number" id="minutes"></span>
                         <span class="countdown-label">Minutos</span>
                     </div>
                     <div class="countdown-item">
-                        <span class="countdown-number" id="seconds">00</span>
+                        <span class="countdown-number" id="seconds"></span>
                         <span class="countdown-label">Segundos</span>
                     </div>
                 </div>
@@ -74,20 +75,20 @@
 
         <!-- SECCIÓN 3: TIMELINE -->
         <section id="timeline" class="section-padding">
-            <div class="container">
+            <div class="container parrafo">
                 <h2 class="section-title">Nuestra Historia de Amor</h2>
                 <div class="timeline">
                     <div class="timeline-item left">
                         <div class="timeline-content">
                             <h3>El Primer Encuentro</h3>
                             <p>En un lugar inesperado, nuestras miradas se cruzaron por primera vez...</p>
-                            <small>03 de diciembre del 2023</small>
+                            <small>02 de diciembre del 2023</small>
                         </div>
                     </div>
                     <div class="timeline-item right">
                         <div class="timeline-content">
                             <h3>La Primera Cita</h3>
-                            <p>Una noche mágica llena de risas, conversaciones y el inicio de todo...</p>
+                            <p >Una noche mágica llena de risas, conversaciones y el inicio de todo...</p>
                             <small>27 de diciembre del 2023</small>
                         </div>
                     </div>
@@ -101,8 +102,8 @@
                     <div class="timeline-item right">
                         <div class="timeline-content">
                             <h3>¡Sí, Quiero!</h3>
-                            <p>Y ahora, estamos listos para decir "Sí, acepto" frente a todos ustedes...</p>
-                            <small>12 de diciembre del 2026</small>
+                            <p>Y ahora, estamos listos para decir "Sí, acepto" y empezar juntos esta nueva etapa de nuetras vidas.</p>
+                            <small>05 de Diciembre del 2026</small>
                         </div>
                     </div>
                 </div>
@@ -113,35 +114,40 @@
         <section id="announcement" class="section-padding">
             <div class="container">
                 <h2 class="section-title">¡Nos Casamos!</h2>
-                <p class="section-subtitle">Con la bendición de Dios y nuestros padres, tenemos el gusto de invitarlos a celebrar nuestra unión.</p>
-                <div class="announcement-details">
+                <p class="section-subtitle">"Sobre todas las cosas vestíos de amor, que es el vínculo perfecto".
+                    Colosenses 3:14
+                </p>
+                <div class="announcement-details link">
                     <div class="detail-card">
                         <i class="fas fa-calendar-alt fa-3x"></i>
                         <h3>Fecha</h3>
-                        <p>Sábado, 12 de diciembre del 2026</p>
+                        <p>Sábado, 05 de diciembre del 2026</p>
                     </div>
                     <div class="detail-card">
                         <i class="fas fa-clock fa-3x"></i>
-                        <h3>Hora</h3>
-                        <p>5:00 pm</p>
+                        <h3>Eucaristía</h3>
+                        <p>6:30 pm</p>
+                        <h3>Recepción</h3>
+                        <p>7:30 pm</p>
                     </div>
                     <div class="detail-card">
                         <i class="fas fa-map-marker-alt fa-3x"></i>
-                        <h3>Lugar</h3>
-                        <p>Por definir, [Dirección]</p>
-                        <a href="[URL de Google Maps]" target="_blank" class="map-link">Ver en el mapa</a>
+                        <br>
+                        <a href="https://maps.app.goo.gl/UMrB5PXusU5FHWRM6" target="_blank" class="map-link">
+                            Eucarístia Seminario Padres Pasionistas</a>
+                            <br><br>
+                        <a href="https://www.google.com/maps?q=Villa+Jardin+Piedecuesta+Km+7+via+Retorno+Tablanca+Urbanizacion+Tablanca+Parcela+12+Piedecuesta+Santander" target="_blank" class="map-link">
+                            Recepción Villa Jardín</a>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- SECCIÓN 5: GALERÍA -->
-        <section id="gallery" class="section-padding">
+        <!-- <section id="gallery" class="section-padding">
             <div class="container">
                 <h2 class="section-title">Nuestros Momentos</h2>
                 <div class="gallery-grid">
-                    <!-- Imágenes -->
-                    <!-- Video -->
                     <a href="Video2.mp4" class="gallery-item" data-lightbox="gallery" data-type="video">
                         <video autoplay muted loop playsinline>
                             <source src="Video2.mp4" type="Video/mp4">
@@ -150,20 +156,18 @@
                     <a href="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=2070" class="gallery-item" data-lightbox="gallery">
                         <img src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=400" alt="Foto de pareja 2">
                     </a>
-                    <!-- Video -->
                     <a href="video1.mp4" class="gallery-item" data-lightbox="gallery" data-type="video">
                         <video autoplay muted loop playsinline>
                             <source src="video1.mp4" type="video/mp4">
                             
                         </video>
                     </a>
-                    <!-- Más imágenes -->
                     <a href="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?q=80&w=2070" class="gallery-item" data-lightbox="gallery">
                         <img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?q=80&w=400" alt="Foto de pareja 3">
                     </a>
                 </div>
             </div>
-        </section>
+        </section> -->
 
         <!-- SECCIÓN 6: RSVP -->
         <section id="rsvp" class="section-padding">
@@ -183,7 +187,7 @@
                             <option value="no">Lamentablemente no podré asistir.</option>
                         </select>
                     </div>
-                    <button type="submit" id="submit-rsvp">Enviar Confirmación</button>
+                    <button type="submit" id="submit-rsvp" href="mariposa.html">Enviar Confirmación</button>
                 </form>
             </div>
         </section>

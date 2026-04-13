@@ -1,0 +1,53 @@
+body {
+      margin: 0;
+      padding: 0;
+    }
+
+    /* .cta-button-mariposa {
+      display: inline-block;
+      padding: 10px 20px;
+      background: #0078d7;
+      color: white;
+      text-decoration: none;
+      border-radius: 10px;
+      margin: 20px;
+    } */
+
+    .video-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6); /* negro con 60% de opacidad */
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    opacity: 0;
+    }
+
+    .video-overlay video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* ajusta el video a la pantalla */
+    }
+
+    /* Animaciones desaparecer botón al dar clic */
+    .fadeIn {
+      animation: fadeIn 0.5s forwards;
+    }
+
+    .fadeOut {
+      animation: fadeOut 2.5s forwards; /* más largo para un desvanecido suave */
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes fadeOut {
+      from { opacity: 1; }
+      to { opacity: 0; }
+    }

@@ -44,8 +44,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // --- CUENTA REGRESIVA ---
-    // ¡IMPORTANTE! Cambia esta fecha a la de tu boda en formato Año-Mes-Día Hora:Minuto:Segundo
-    const weddingDate = new Date("2026-12-31T17:00:00").getTime();
+    const weddingDate = new Date("2026-12-05T18:30:00").getTime();
 
     const countdownInterval = setInterval(function() {
     const now = new Date().getTime();
@@ -178,3 +177,5 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
 });
+
+

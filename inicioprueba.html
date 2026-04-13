@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Una Invitación Especial</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* --- Variables de Diseño (Fácil Personalización) --- */
+        :root {
+            --bg-color: #1a1a2e;
+            --envelope-color: #f0e6d2;
+            --envelope-shadow: #c9b79c;
+            --seal-color: #c9a227;
+            --text-color: #5d4037;
+            --accent-color: #d4af37;
+        }
+
+        /* --- Estilos Generales --- */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: var(--bg-color);
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(212, 175, 55, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(212, 175, 55, 0.05) 0%, transparent 50%);
+            font-family: 'Montserrat', sans-serif;
+            overflow: hidden;
+        }
+
+        /* --- Contenedor Principal con Perspectiva 3D --- */
+        .invitation-wrapper {
+            position: relative;
+            perspective: 2000px;
+        }
+
+        /* --- El Sobre --- */
+        .envelope {
+            width: 380px;
+            height: 250px;
+            position: relative;
+            transition: transform 0.5s ease;
+            transform-style: preserve-3d;
+        }
+        
+        /* --- Base del Sobre --- */
+        .envelope-base {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: var(--envelope-color);
+            border-radius: 0 0 15px 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        /* --- Solapa del Sobre (la que se levanta) --- */
+        .envelope-flap {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--envelope-color) 0%, var(--envelope-shadow) 100%);
+            clip-path: polygon(50% 65%, 0 0, 100% 0);
+            transform-origin: top center;
+            transition: transform 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 2;
+        }
+
+        /* --- La Carta que se desliza --- */
+        .letter {
+            position: absolute;
+            width: 90%;
+            height: 85%;
+            background: #fdfaf2;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            color: var(--text-color);
+            border-radius: 3px;
+            transition: transform 1.5s cubic-bezier(0.4, 0, 0.2, 1) 0.5s, opacity 0.5s ease 1.5s;
+            z-index: 1;
+        }
+
+        .letter h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3em;
+            margin: 0;
+            color: var(--accent-color);
+        }
+        .letter p {
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+
+        /* --- Sello de Cera (El Botón) --- */
+        .wax-seal {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 90px;
+            height: 90px;
+            background: radial-gradient(circle at 30% 30%, #f4e4bc, var(--seal-color));
+            border-radius: 50%;
+            z-index: 3;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.4), inset 0 -2px 5px rgba(0,0,0,0.3);
+            transition: all 0.3s ease, opacity 0.5s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2.5em;
+            color: #a07e2b;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+        .wax-seal:hover {
+            transform: translate(-50%, -50%) scale(1.05);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.5), inset 0 -2px 5px rgba(0,0,0,0.3);
+        }
+        .wax-seal::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: radial-gradient(circle at 70% 70%, transparent 40%, rgba(255,255,255,0.1) 100%);
+        }
+
+        /* --- Estado "Abierto" (Activado por JavaScript) --- */
+        .envelope.open .envelope-flap {
+            transform: rotateX(-180deg);
+        }
+        .envelope.open .wax-seal {
+            opacity: 0;
+            pointer-events: none;
+        }
+        .envelope.open .letter {
+            transform: translate(-50%, -250%); /* Se desliza hacia arriba */
+            opacity: 0; /* Se desvanece al final de la animación */
+        }
+        .envelope.open {
+            transform: translateY(20px); /* El sobre se desliza un poco hacia abajo */
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="invitation-wrapper">
+        <div class="envelope" id="envelope">
+            <!-- Base del sobre -->
+            <div class="envelope-base"></div>
+            
+            <!-- La carta -->
+            <div class="letter">
+                <h1>¡Estás Invitado!</h1>
+                <p>Te esperamos para celebrar un momento muy especial juntos.</p>
+                <p>Presiona el sello para descubrir los detalles.</p>
+            </div>
+
+            <!-- Solapa del sobre -->
+            <div class="envelope-flap"></div>
+
+            <!-- Sello de cera (botón) -->
+            <div class="wax-seal" id="waxSeal">
+                ♜
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            const waxSeal = document.getElementById('waxSeal');
+            const envelope = document.getElementById('envelope');
+
+            waxSeal.addEventListener('click', () => {
+                // Evita múltiples clics
+                if (envelope.classList.contains('open')) {
+                    return;
+                }
+
+                // 1. Añade la clase 'open' para iniciar todas las animaciones
+                envelope.classList.add('open');
+
+                // 2. Calcula el tiempo total de las animaciones antes de redirigir
+                // - Solapa: 1.2s
+                // - Carta: empieza tras 0.5s y dura 1.5s. Total hasta que desaparece: 0.5 + 1.5 = 2.0s
+                // - Usamos el tiempo más largo para asegurar que se vea toda la animación.
+                const totalAnimationTime = 2000; // 2 segundos
+
+                setTimeout(() => {
+                    // ** IMPORTANTE **: Cambia 'tu-invitacion.html' por el nombre real de tu página de destino.
+                    window.location.href = 'tu-invitacion.html'; 
+                }, totalAnimationTime);
+            });
+        });
+    </script>
+
+</body>
+</html>
