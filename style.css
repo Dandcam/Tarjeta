@@ -21,7 +21,7 @@ html {
 
 body {
     font-family: var(--font-body);
-    background-color: var(--primary-color);
+    background-image: url(Fondo1.png);
     color: var(--text-color);
     line-height: 1.6;
     overflow-x: hidden;
@@ -46,11 +46,13 @@ body {
 }
 
 .section-subtitle {
+    color: var(--accent-color);
     text-align: center;
     max-width: 700px;
     margin: 0 auto 50px auto;
     font-size: 2.1rem;
     opacity: 0.8;
+    font-weight: bold;
 }
 .parrafo{
     font-size: 1.3rem;
@@ -293,9 +295,9 @@ header nav a:hover {
 
 /* --- SECCIÓN 2: CUENTA REGRESIVA --- */
 #countdown {
-    background: rgba(26, 42, 74, 0.2);
-    border-radius: 15px;
-    border: 1px solid rgba(212, 175, 55, 0.2);
+    /* background: rgba(26, 42, 74, 0.2); */
+    border-radius: 0px;
+    border: 0px solid rgba(212, 175, 55, 0.2);
 }
 
 .countdown-wrapper {
@@ -319,10 +321,12 @@ header nav a:hover {
 }
 
 .countdown-label {
+    color: var(--accent-color);
     font-size: 0.8rem;
     text-transform: uppercase;
     letter-spacing: 2px;
     margin-top: 10px;
+    font-weight: bold;
 }
 
 /* --- SECCIÓN 3: TIMELINE --- */
@@ -378,8 +382,10 @@ header nav a:hover {
 .right::after { left: -12px; }
 
 .timeline-content {
+    font-size: 27px;
     padding: 25px 30px;
-    background-color: rgba(26, 42, 74, 0.5);
+    background-color: var(--primary-color);
+    color: var(--text-color-inicio);
     position: relative;
     border-radius: 10px;
     border: 1px solid rgba(212, 175, 55, 0.3);
@@ -554,6 +560,7 @@ header nav a:hover {
 }
 
 .form-group label {
+    font-size: 1.6rem;
     display: block;
     margin-bottom: 10px;
     color: var(--accent-color);
@@ -566,9 +573,10 @@ header nav a:hover {
     border-radius: 8px;
     border: 1px solid rgba(212, 175, 55, 0.3);
     background-color: rgba(255, 255, 255, 0.1);
-    color: var(--text-color);
+    color: var(--accent-color);
     font-family: var(--font-body);
     transition: all 0.3s ease;
+    font-size: 1.1rem;
 }
 
 .form-group input:focus, .form-group select:focus {
@@ -685,4 +693,50 @@ header nav a:hover {
 }
 
 
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  text-align: center;
+  max-width: 400px;
+  animation: fadeIn 0.4s ease;
+}
+
+.modal-content h2 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.modal-content p {
+  margin-bottom: 20px;
+}
+
+.modal-content button {
+  background: #d4af37;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.8); }
+  to { opacity: 1; transform: scale(1); }
+}
 
