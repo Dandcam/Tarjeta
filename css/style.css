@@ -21,7 +21,7 @@ html {
 
 body {
     font-family: var(--font-body);
-    background-image: url(Fondo1.png);
+    background-image: url(/assets/images/Fondo1.png);
     color: var(--text-color);
     line-height: 1.6;
     overflow-x: hidden;

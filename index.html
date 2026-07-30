@@ -4,51 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>¡Nos Casamos!</title>
-    
+
     <!-- CSS -->
-    <link rel="stylesheet" href="style.css">
-    
+    <link rel="stylesheet" href="css/style.css">
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Allura&family=Montserrat&display=swap" rel="stylesheet">
-    
+
     <!-- Font Awesome para iconos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
     <!-- Confetti para el RSVP -->
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+    <!-- Cliente de Supabase (base de datos de las confirmaciones) -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
-    <!-- Pantalla de Carga -->
-    <!-- <div id="loader-wrapper">
-        <div id="loader"></div>
-        <div class="loader-section section-left"></div>
-        <div class="loader-section section-right"></div>
-    </div> -->
-
     <!-- Reproductor de Música -->
     <div id="music-player" title="Reproducir/Pausar Música">
         <i class="fas fa-music" id="music-icon"></i>
     </div>
-    <audio id="background-music" src="Cancion.mp3" loop></audio>
-   
+    <audio id="background-music" src="assets/audio/Cancion.mp3" loop></audio>
+
     <main>
         <!-- SECCIÓN 1: BIENVENIDA -->
         <section id="hero">
             <div class="hero-content">
-                <h1 class="hero-main-title" data-text="[Nombre 1] & [Nombre 2]">Deiber & Tania</h1>
+                <h1 class="hero-main-title" data-text="Deiber & Tania">Deiber & Tania</h1>
                 <p class="hero-subtitle">Con la bendición de Dios y nuestros padres, tenemos el gusto de invitarlos a celebrar nuestra unión.</p>
-                <!-- <a href="#timeline" class="cta-button">Ver Detalles</a> -->
-            </div>    
-            <!-- <div id="butterfly-container" class="scroll-indicator">
-                <i class="fas fa-chevron-down"></i>
-            </div> -->
+            </div>
         </section>
 
-        <!-- Sección cuenta regresiva -->
-            <section id="countdown" class="section-padding">
+        <!-- SECCIÓN 2: CUENTA REGRESIVA -->
+        <section id="countdown" class="section-padding">
             <div class="container">
                 <h2 class="section-title">Faltan</h2>
                 <div class="countdown-wrapper">
@@ -87,7 +79,7 @@
                     <div class="timeline-item right">
                         <div class="timeline-content">
                             <h3>La Primera Cita</h3>
-                            <p >Una noche mágica llena de risas, conversaciones y el inicio de todo...</p>
+                            <p>Una noche mágica llena de risas, conversaciones y el inicio de todo...</p>
                             <small>27 de diciembre del 2023</small>
                         </div>
                     </div>
@@ -101,7 +93,7 @@
                     <div class="timeline-item right">
                         <div class="timeline-content">
                             <h3>¡Sí, Quiero!</h3>
-                            <p>Y ahora, estamos listos para decir "Sí, acepto" y empezar juntos esta nueva etapa de nuetras vidas.</p>
+                            <p>Y ahora, estamos listos para decir "Sí, acepto" y empezar juntos esta nueva etapa de nuestras vidas.</p>
                             <small>05 de Diciembre del 2026</small>
                         </div>
                     </div>
@@ -133,8 +125,8 @@
                         <i class="fas fa-map-marker-alt fa-3x"></i>
                         <br>
                         <a href="https://maps.app.goo.gl/UMrB5PXusU5FHWRM6" target="_blank" class="map-link">
-                            Eucarístia Seminario Padres Pasionistas</a>
-                            <br><br>
+                            Eucaristía Seminario Padres Pasionistas</a>
+                        <br><br>
                         <a href="https://www.google.com/maps?q=Villa+Jardin+Piedecuesta+Km+7+via+Retorno+Tablanca+Urbanizacion+Tablanca+Parcela+12+Piedecuesta+Santander" target="_blank" class="map-link">
                             Recepción Villa Jardín</a>
                     </div>
@@ -142,16 +134,24 @@
             </div>
         </section>
 
-        <!-- SECCIÓN 6: RSVP -->
+        <!-- SECCIÓN 5: RSVP -->
         <section id="rsvp" class="section-padding">
             <div class="container">
                 <h2 class="section-title">Confirma tu Asistencia</h2>
                 <p class="section-subtitle">Por favor, confírmanos tu asistencia antes del 01 de noviembre.</p>
                 <form id="rsvp-form">
                     <div class="form-group">
-                        <label for="name">Nombre Completo</label>
+                        <label for="name">Nombre completo asistente</label>
                         <input type="text" id="name" name="name" required>
-                    </div>                    
+                    </div>
+                    <div class="form-group">
+                        <label for="name_acompañante">Nombre completo acompañante</label>
+                        <input type="text" id="name_acompañante" name="name_acompañante" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Número de celular</label>
+                        <input type="number" id="phone" name="phone" required>
+                    </div>
                     <div class="form-group">
                         <label for="attendance">¿Asistirás?</label>
                         <select id="attendance" name="attendance" required>
@@ -160,68 +160,29 @@
                             <option value="No asistiré">Lamentablemente no podré asistir.</option>
                         </select>
                     </div>
+
+                    <!-- Campo trampa anti-spam: invisible para personas, atractivo para bots.
+                         No lo quites ni le pongas 'display:none' en el CSS con esa clase visible al usuario. -->
+                    <div class="form-group" style="position:absolute; left:-9999px;" aria-hidden="true">
+                        <label for="website">No llenar este campo</label>
+                        <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+                    </div>
                     <button type="submit" id="submit-rsvp">Enviar Confirmación</button>
                 </form>
             </div>
         </section>
     </main>
 
+    <div id="modal-confirmacion" class="modal">
+        <div class="modal-content">
+            <h2>🎉 ¡Confirmación enviada!</h2>
+            <p>Gracias por confirmar tu asistencia. ¡Nos vemos en la boda! 💖</p>
+            <button onclick="cerrarModal()">Aceptar</button>
+        </div>
+    </div>
+
     <!-- JavaScript -->
-    <script src="scripts.js"></script>
-    
-
-<script>
-const URL_SCRIPT = "https://script.google.com/macros/s/AKfycbwVXUOc-2WJRtRDwoO1SOcw-z1B8T4HgvoX1fIgfJw7uAFMXMzANZfg7nFG4SEbKqj-/exec";
-
-document.getElementById("rsvp-form").addEventListener("submit", function(e) {
-    e.preventDefault();
-
-    const nombre = document.getElementById("name").value.trim();
-    const asistencia = document.getElementById("attendance").value;
-
-    if (!nombre || !asistencia) {
-        alert("Por favor completa todos los campos");
-        return;
-    }
-
-    fetch(URL_SCRIPT, {
-        method: "POST",
-        mode: "no-cors",
-        body: new URLSearchParams({
-            nombre: nombre,
-            asistencia: asistencia
-        })
-    });
-
-    // 🎉 Confetti
-    confetti({
-        particleCount: 120,
-        spread: 70,
-        origin: { y: 0.6 }
-    });
-
-    abrirModal();
-
-    document.getElementById("rsvp-form").reset();
-});
-</script>
-
-<div id="modal-confirmacion" class="modal">
-  <div class="modal-content">
-    <h2>🎉 ¡Confirmación enviada!</h2>
-    <p>Gracias por confirmar tu asistencia. ¡Nos vemos en la boda! 💖</p>
-    <button onclick="cerrarModal()">Aceptar</button>
-  </div>
-</div>
-
-<script>
-function abrirModal() {
-  document.getElementById("modal-confirmacion").style.display = "flex";
-}
-
-function cerrarModal() {
-  document.getElementById("modal-confirmacion").style.display = "none";
-}
-</script>
+    <script src="js/script.js"></script>
+    <script src="js/rsvp.js"></script>
 </body>
 </html>
