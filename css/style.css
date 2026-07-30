@@ -21,7 +21,7 @@ html {
 
 body {
     font-family: var(--font-body);
-    background-image: url(/assets/images/Fondo1.png);
+    background-image: url(./assets/images/Fondo1.png);
     color: var(--text-color);
     line-height: 1.6;
     overflow-x: hidden;
@@ -172,7 +172,7 @@ header nav a:hover {
     font-family: var(--font-heading);
     font-size: 4.5rem;
     color: var(--text-color-inicio);
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+    text-shadow: 1.5px 1.5px 4px rgba(0, 0, 0, 0.7);
     margin-bottom: 20px;
     animation: fadeInUp 1.5s ease-out;
 }
@@ -569,14 +569,14 @@ header nav a:hover {
 
 .form-group input, .form-group select {
     width: 100%;
-    padding: 15px;
+    padding: 13px;
     border-radius: 8px;
     border: 1px solid rgba(212, 175, 55, 0.3);
     background-color: rgba(255, 255, 255, 0.1);
     color: var(--accent-color);
     font-family: var(--font-body);
     transition: all 0.3s ease;
-    font-size: 1.1rem;
+    font-size: 1.4rem;
 }
 
 .form-group input:focus, .form-group select:focus {
@@ -708,12 +708,13 @@ header nav a:hover {
 }
 
 .modal-content {
-  background: white;
+  background: var(--secondary-color);
   padding: 30px;
   border-radius: 20px;
   text-align: center;
   max-width: 400px;
   animation: fadeIn 0.4s ease;
+  color: var(--accent-color);
 }
 
 .modal-content h2 {
@@ -728,7 +729,7 @@ header nav a:hover {
 
 .modal-content button {
   background: #d4af37;
-  color: white;
+  color: var(--secondary-color);
   border: none;
   padding: 10px 20px;
   border-radius: 10px;
