@@ -159,17 +159,17 @@ header nav a:hover {
 
 /* --- SECCIÓN 1: INVITACIÓN --- */
 #hero {
-    height: 100vh;
+    height: 96vh;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    position: relative;
     padding-left: 50px;
     padding-right: 50px;
     flex-direction: column;
+    overflow: hidden;
     background-image: url('../assets/images/Fondo5.png');
-    background-size: contain;
+    background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 }
