@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function () {
             musicIcon.classList.remove('fa-music');
             musicIcon.classList.add('fa-pause');
         }
-        isPlaying = !isPlaying;
+        isPlaying = !isPlaying; 
     });
 
     // --- CUENTA REGRESIVA ---
@@ -87,12 +87,5 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Nota: la lógica del formulario RSVP vive en js/rsvp.js, no aquí,
     // para mantener separada la parte de "presentación" de la de "datos".
-
-    // --- EFECTO PARALLAX SUTIL EN EL HERO ---
-    window.addEventListener('scroll', () => {
-        const scrolled = window.pageYOffset;
-        const hero = document.getElementById('hero');
-        hero.style.transform = `translateY(${scrolled * 0.5}px)`;
-    });
 
 });

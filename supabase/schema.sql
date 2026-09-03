@@ -6,8 +6,6 @@
 create table if not exists confirmaciones (
     id uuid primary key default gen_random_uuid(),
     nombre text not null,
-    acompañante text not null,
-    telefono integer not null,
     asistencia text not null check (asistencia in ('Sí asistiré', 'No asistiré')),
     fecha_registro timestamptz not null default now()
 );

@@ -12,13 +12,11 @@ document.addEventListener("DOMContentLoaded", function () {
         e.preventDefault();
 
         const nombre = document.getElementById("name").value.trim();
-        const acompañante = document.getElementById("name_acompañante").value.trim();
-        const telefono = document.getElementById("phone").value.trim();
         const asistencia = document.getElementById("attendance").value;
         // Campo trampa anti-spam (ver nota en index.html)
         const honeypot = document.getElementById("website");
 
-        if (!nombre || !acompañante || !asistencia || !telefono) {
+        if (!nombre || !asistencia) {
             alert("Por favor completa todos los campos");
             return;
         }
@@ -34,20 +32,20 @@ document.addEventListener("DOMContentLoaded", function () {
 
         const { error } = await supabaseClient
             .from("confirmaciones")
-            .insert([{ nombre, acompañante, asistencia, telefono }]);
+            .insert([{ nombre, asistencia }]);
 
         submitBtn.disabled = false;
         submitBtn.textContent = "Enviar Confirmación";
 
-        if (error) {
-            console.error("Error al guardar confirmación:", error);
-            if (error.code === "23505") {
-                alert("Ya registramos una confirmación con ese nombre. Si necesitas corregirla, escríbenos directamente.");
-            } else {
-                alert("Ocurrió un problema al enviar tu confirmación. Por favor intenta de nuevo en unos segundos.");
-            }
-            return;
-        }
+        // if (error) {
+        //     console.error("Error al guardar confirmación:", error);
+        //     if (error.code === "23505") {
+        //         alert("Ya registramos una confirmación con ese nombre. Si necesitas corregirla, escríbenos directamente.");
+        //     } else {
+        //         alert("Ocurrió un problema al enviar tu confirmación. Por favor intenta de nuevo en unos segundos.");
+        //     }
+        //     return;
+        // }
 
         // Éxito real y confirmado por la base de datos
         if (window.confetti) {
