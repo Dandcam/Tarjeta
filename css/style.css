@@ -160,6 +160,7 @@ header nav a:hover {
 /* --- SECCIÓN 1: INVITACIÓN --- */
 #hero {
     height: 96vh;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
