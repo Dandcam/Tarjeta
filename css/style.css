@@ -160,7 +160,7 @@ header nav a:hover {
 /* --- SECCIÓN 1: INVITACIÓN --- */
 #hero {
     height: 96vh;
-    width: 100%;
+    width: auto;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -170,7 +170,7 @@ header nav a:hover {
     flex-direction: column;
     overflow: hidden;
     background-image: url('../assets/images/Fondo5.png');
-    background-size: 100% auto;
+    background-size: 100% 100%;
     background-position: center;
     background-repeat: no-repeat;
 }
