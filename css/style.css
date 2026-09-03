@@ -165,12 +165,12 @@ header nav a:hover {
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding-left: 50px;
-    padding-right: 50px;
+    padding-left: 10px;
+    padding-right: 10px;
     flex-direction: column;
     overflow: hidden;
     background-image: url('../assets/images/Fondo5.png');
-    background-size: cover;
+    background-size: 100% auto;
     background-position: center;
     background-repeat: no-repeat;
 }
@@ -178,7 +178,6 @@ header nav a:hover {
 .hero-imagen {
     height: 100%;
     width: 100%;
-    border-color: var(--accent-c);
     padding-left: 10px;
     padding-right: 10px;
     display: flex;
